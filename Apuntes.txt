@@ -1,0 +1,50 @@
+Para realizar Testing en Go se utiliza la siguiente forma:
+
+Se nombra el archivo a ser testeado como
+
+	ARCHIVO ORIGINAL 	-> "main.go"
+	ARCHIVO PARA TESTS	-> "main_test.go"
+
+------------------------------------------------------------------
+
+Si alguna de las funciones no está testeada, se puede revisar el porcentage mediante
+
+>> go test -cover
+
+-> Esto arroja el porcentaje de código pendiente por testear
+
+------------------------------------------------------------------
+
+Para generar el archivo de revisar hasta dónde va la cobertura de los test, entonces se hace
+>> go test -coverprofile="coverage.out"
+
+Para ver el detale de la cobertura de los tests
+
+TERMINAL
+>> go tool cover -func="coverage.out"
+
+NAVEGADOR (permite ver una vista más general con colores que diferencian)
+>> go tool cover -html="coverage.out"
+
+-----------------------------------------------------------------
+CPU PROFILING
+
+go test -cpuprofile="cout.out"
+
+go tool pprof cout.out
+
+-----------------------------------------------------------------
+CPU PROFILING REST AND FOR gRPC
+
+Se debe instalar previamente Graphviz - para hacer la visualización de los valores
+
+Realizar pruebas desde Postman
+https://blog.postman.com/postman-api-performance-testing/
+Se le da en Run Collection y ahí se hacen las configuraciones respectivas
+
+>> curl -o web.txt --location "http://localhost:6060/debug/pprof/profile?seconds=60"
+>> go tool pprof web.txt
+	- web // Esto despliega una vista en el navegador
+
+Instalar en gRPC
+https://www.pixelstech.net/article/1611981864-How-to-do-pprof-for-gRPC-service
