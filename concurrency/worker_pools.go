@@ -18,9 +18,9 @@ func Fibonacci(n int) int {
 	return Fibonacci(n-1) + Fibonacci(n-2)
 }
 
-func main6() {
+func main() {
 	tasks := []int{40, 41, 42, 43, 44, 45, 46, 47, 48}
-	nWorkers := 2
+	nWorkers := 10
 	jobs := make(chan int, len(tasks))
 	results := make(chan int, len(tasks))
 

@@ -11,10 +11,10 @@ import (
 	Cuando una rutina se está comunicando con varios channels
 	es muy útil usar la palabra reservada select para poder
 	interactuar de una manera más ordenada con todos los mensajes
-	que están iendo recibidos
+	que están siendo recibidos
 */
 
-func main() {
+func main7() {
 
 	c1 := make(chan int)
 	c2 := make(chan int)

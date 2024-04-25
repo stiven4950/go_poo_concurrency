@@ -40,8 +40,8 @@ func GetFullTimeEmployeeById(id int, dni string) (*FullTimeEmployee, error) {
 	if err != nil {
 		return &ftEmployee, err
 	}
-
 	ftEmployee.Employee = *e
+
 	p, err := GetPersonByDNI(dni)
 	if err != nil {
 		return &ftEmployee, err
